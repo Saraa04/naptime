@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#"
+     xml:base="http://www.semanticweb.org/39328/ontologies/2020/11/naptime"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:naptime="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime">
+        <owl:versionIRI rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime"/>
+        <dc:creator xml:lang="en">Elena Alloca</dc:creator>
+        <dc:creator xml:lang="en">Katarina Lucic</dc:creator>
+        <dc:creator xml:lang="en">Sara Kitanoska</dc:creator>
+        <terms:title xml:lang="en">NapTime ontology</terms:title>
+        <Rights xml:lang="en">This work is distrubuted under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</Rights>
+        <rdfs:comment xml:lang="en">Here we need to insert the one phrase description of our project.</rdfs:comment>
+        <owl:versionInfo xml:lang="en">1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Rights -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#applies_genre_tag -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#applies_genre_tag">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Streaming_platform"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Genre"/>
+        <rdfs:comment>This property relates the film to its genre assigned by the specific streaming platform.</rdfs:comment>
+        <rdfs:label>applies genre tag</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#assigns_rating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#assigns_rating">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Rating"/>
+        <rdfs:comment>This property relates the user to the rating he/she gives for a film.</rdfs:comment>
+        <rdfs:label>assigns rating</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#defines -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#defines">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Topic"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Keyword"/>
+        <rdfs:comment>This property relates a specific keyword(s) to the topic.</rdfs:comment>
+        <rdfs:label>defines</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#defines_genre -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#defines_genre">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Keyword"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Topic"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Genre"/>
+        <rdfs:comment>This property relates the topic obtained from the textual analysis to the genre.</rdfs:comment>
+        <rdfs:label>defines genre</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_genre -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_genre">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Genre"/>
+        <rdfs:comment>This property relates the film to its genre.</rdfs:comment>
+        <rdfs:label>has genre</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_keyword -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_keyword">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Keyword"/>
+        <rdfs:comment>This property represents the values obtained after the analysis on the plot summary.</rdfs:comment>
+        <rdfs:label>has keywords</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_plot -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_plot">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Streaming_platform"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot"/>
+        <rdfs:comment>This property relates the plot summary to the streaming platform it can be found on.</rdfs:comment>
+        <rdfs:label>has plot</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_polarity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_polarity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User_reviews"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Word"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Polarity"/>
+        <rdfs:comment>This property represents the value obtained after doing the sentiment analysis on the user reviews.</rdfs:comment>
+        <rdfs:label>has polarity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_rating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_rating">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Rating"/>
+        <rdfs:comment>The rating for a film assigned by IMDB.</rdfs:comment>
+        <rdfs:label>has rating</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_review -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_review">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User_reviews"/>
+        <rdfs:comment>This property relates the film to its user review.</rdfs:comment>
+        <rdfs:label>has review</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_word -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_word">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User_reviews"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Word"/>
+        <rdfs:comment>This property defines every single word from the user review, on which the sentiment analysis is done.</rdfs:comment>
+        <rdfs:label>has word</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#is_available_on -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#is_available_on">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Streaming_platform"/>
+        <rdfs:comment>Relates the film to the the streaming platform is can be found on.</rdfs:comment>
+        <rdfs:label>is available on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_antagonist -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_antagonist">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Antagonist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The antagonist of the film.</rdfs:comment>
+        <rdfs:label>has antagonist</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_deuteragonist -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_deuteragonist">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Deuteragonist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The deuteragonist of the film.</rdfs:comment>
+        <rdfs:label>has deuteragonist</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_director -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_director">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Director"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The director of the film.</rdfs:comment>
+        <rdfs:label>has director</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_duration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_duration">
+        <rdfs:comment>The runtime of the film.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/owl-time/#time:hasDuration"/>
+        <rdfs:label>has duration</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_leading_actor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_leading_actor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The name of the leading actor in a film.</rdfs:comment>
+        <rdfs:label>has leading actor</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_producer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_producer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Producer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The producer of the film.</rdfs:comment>
+        <rdfs:label>has producer</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_protagonist -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_protagonist">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Protagonist"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The protagonist of the film.</rdfs:comment>
+        <rdfs:label>has protagonist</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_screenwriter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_screenwriter">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Screenwriter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The writer of the film screenplay.</rdfs:comment>
+        <rdfs:label>has screenwriter</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_supporting_actor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_supporting_actor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Supporting_actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The supporting actor(s) of the film.</rdfs:comment>
+        <rdfs:label>has supporting actor</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_tertiary_character -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#has_tertiary_character">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Tertiary_character"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The tertiary character of the film.</rdfs:comment>
+        <rdfs:label>has tertiary character</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>The title of the film.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/title"/>
+        <rdfs:label>title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Actor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Actor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew"/>
+        <rdfs:comment>A leading actor plays the role of the protagonist of a film, television show or play.</rdfs:comment>
+        <rdfs:isDefinedBy>Leading actor</rdfs:isDefinedBy>
+        <rdfs:label>Leading actor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Agent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Agent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:comment>A resource that acts or has power to act.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/Agent"/>
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Antagonist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Antagonist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Movie_character"/>
+        <rdfs:comment>A person who actively opposes or is hostile to someone or something; an adversary.</rdfs:comment>
+        <rdfs:isDefinedBy>Antagonist</rdfs:isDefinedBy>
+        <rdfs:label>Antagonist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:comment>Represents the class of entities needed for defining the fundamental elements used for the project analysis.</rdfs:comment>
+        <rdfs:isDefinedBy>Concept</rdfs:isDefinedBy>
+        <rdfs:label>Concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Deuteragonist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Deuteragonist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Movie_character"/>
+        <rdfs:comment>The person second in importance to the protagonist.</rdfs:comment>
+        <rdfs:isDefinedBy>Deuteragonist</rdfs:isDefinedBy>
+        <rdfs:label>Deuteragonist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Director -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Director">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew"/>
+        <rdfs:comment>A film director controls a film&apos;s artistic and dramatic aspects and visualizes the screenplay while guiding the technical crew and actors in the fulfilment of that vision.</rdfs:comment>
+        <rdfs:isDefinedBy>Director</rdfs:isDefinedBy>
+        <rdfs:label>Director</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film">
+        <rdfs:comment>A story or event recorded by a camera as a set of moving images and shown in a cinema or on television.</rdfs:comment>
+        <rdfs:isDefinedBy>Film</rdfs:isDefinedBy>
+        <rdfs:label>Film</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Agent"/>
+        <rdfs:comment>A group of people who are involved in the practical and technical business of shooting a film.</rdfs:comment>
+        <rdfs:isDefinedBy>Film crew</rdfs:isDefinedBy>
+        <rdfs:label>Film crew</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Genre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Genre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:comment>A style or category of art, music, or literature.</rdfs:comment>
+        <rdfs:isDefinedBy>Genre</rdfs:isDefinedBy>
+        <rdfs:label>Genre</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Keyword -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Keyword">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept"/>
+        <rdfs:comment>Keywords obtained after the plot summary analysis.</rdfs:comment>
+        <rdfs:isDefinedBy>Keywords</rdfs:isDefinedBy>
+        <rdfs:label>Keywords</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Movie_character -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Movie_character">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Agent"/>
+        <rdfs:comment>A character (sometimes known as a fictional character) is a person or other being in a narrative (such as a novel, play, television series, film, or video game).</rdfs:comment>
+        <rdfs:isDefinedBy>Film character</rdfs:isDefinedBy>
+        <rdfs:label>Film character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Plot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept"/>
+        <rdfs:comment>A brief description of a film plot that explains what happens.</rdfs:comment>
+        <rdfs:isDefinedBy>Plot summary</rdfs:isDefinedBy>
+        <rdfs:label>Plot summary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Polarity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Polarity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept"/>
+        <rdfs:comment>The polarity value connected to the outcome from sentiment analysis.</rdfs:comment>
+        <rdfs:isDefinedBy>Polarity</rdfs:isDefinedBy>
+        <rdfs:label>Polarity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Producer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Producer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew"/>
+        <rdfs:comment>A person who makes the practical and financial arrangements needed to make a film.</rdfs:comment>
+        <rdfs:isDefinedBy>Producer</rdfs:isDefinedBy>
+        <rdfs:label>Producer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Protagonist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Protagonist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Movie_character"/>
+        <rdfs:comment>The leading character or one of the major characters in a play, film, novel, etc.</rdfs:comment>
+        <rdfs:isDefinedBy>Protagonist</rdfs:isDefinedBy>
+        <rdfs:label>Protagonist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Rating -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Rating">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept"/>
+        <rdfs:comment>The rating of the film.</rdfs:comment>
+        <rdfs:isDefinedBy>Rating</rdfs:isDefinedBy>
+        <rdfs:label>Rating</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Screenwriter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Screenwriter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew"/>
+        <rdfs:comment>A person who writes a screenplay.</rdfs:comment>
+        <rdfs:isDefinedBy>Screewriter</rdfs:isDefinedBy>
+        <rdfs:label>Screenwriter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Streaming_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Streaming_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:comment>A subscription-based service offering online streaming of films and television programs.</rdfs:comment>
+        <rdfs:isDefinedBy>Streaming platform</rdfs:isDefinedBy>
+        <rdfs:label>Streaming platform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Supporting_actor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Supporting_actor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film_crew"/>
+        <rdfs:comment>An actor who performs a role in a play or film below that of the leading actor.</rdfs:comment>
+        <rdfs:isDefinedBy>Supporting actor</rdfs:isDefinedBy>
+        <rdfs:label>Supporting actor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Tertiary_character -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Tertiary_character">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Movie_character"/>
+        <rdfs:comment>A character who appears in one, perhaps two scenes for a specific, limited purpose.</rdfs:comment>
+        <rdfs:isDefinedBy>Tertiary character</rdfs:isDefinedBy>
+        <rdfs:label>Tertiary character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Topic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Topic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept"/>
+        <rdfs:comment>Topic refers to the retrieved topic of a single plot summary.</rdfs:comment>
+        <rdfs:isDefinedBy>Topic</rdfs:isDefinedBy>
+        <rdfs:label>Topic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Agent"/>
+        <rdfs:comment>A person who writes the review for a film.</rdfs:comment>
+        <rdfs:isDefinedBy>User</rdfs:isDefinedBy>
+        <rdfs:label>User</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User_reviews -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#User_reviews">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Film"/>
+        <rdfs:comment>A review conducted by any person who has access to the internet and publishes their experience to a review site.</rdfs:comment>
+        <rdfs:isDefinedBy>User review</rdfs:isDefinedBy>
+        <rdfs:label>User review</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Word -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Word">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/39328/ontologies/2020/11/naptime#Concept"/>
+        <rdfs:comment>The single word extracted from the user review, used to conduct the sentiment analysis.</rdfs:comment>
+        <rdfs:isDefinedBy>Word</rdfs:isDefinedBy>
+        <rdfs:label>Word</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
