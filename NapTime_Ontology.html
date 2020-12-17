@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)file:///C:/NaptimeProject/index-en.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+ <link rel="stylesheet" href="./NapTime_Ontology_files/primer.css" media="screen">    <link rel="stylesheet" href="./NapTime_Ontology_files/rec.css" media="screen">    <link rel="stylesheet" href="./NapTime_Ontology_files/extra.css" media="screen">    <link rel="stylesheet" href="./NapTime_Ontology_files/owl.css" media="screen">    <title>NapTime ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://naptime.github.io/nap.owl","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://naptime.github.io/nap.owl","name":"NapTime ontology", "headline":"NapTime ontology is a movie based framework that conveys the difference in movie genre classification in particular streaming platforms.", "datePublished":"Thu Dec 17 20:32:25 CET 2020", "version":"1.0.0", "author":[{"@type":"Person","name":"Elena Allocca"},{"@type":"Person","name":"Katarina Lucic"},{"@type":"Person","name":"Sara Kitanoska"}]}</script>
+
+<script src="./NapTime_Ontology_files/jquery.js.download"></script> 
+<script src="./NapTime_Ontology_files/marked.min.js.download"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+ $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="file:///C:/NaptimeProject/index-en.html"><b>en</b></a> </div>
+<h1>NapTime ontology</h1>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="https://naptime.github.io/nap.owl">https://naptime.github.io/nap.owl</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="https://naptime.github.io/nap.owl">https://naptime.github.io/nap.owl</a></dd>
+<dt>Revision:</dt>
+<dd>1.0.0</dd>
+<dt>Authors:</dt>
+<dd>Elena Allocca</dd><dd>Katarina Lucic</dd><dd>Sara Kitanoska</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="file:///C:/NaptimeProject/ontology.json" target="_blank"><img src="./NapTime_Ontology_files/Format-JSON_LD-blue.svg" alt="JSON-LD"></a> </span><span><a href="file:///C:/NaptimeProject/ontology.xml" target="_blank"><img src="./NapTime_Ontology_files/XML-blue.svg" alt="RDF/XML"></a> </span><span><a href="file:///C:/NaptimeProject/ontology.nt" target="_blank"><img src="./NapTime_Ontology_files/Format-N_Triples-blue.svg" alt="N-Triples"></a> </span><span><a href="file:///C:/NaptimeProject/ontology.ttl" target="_blank"><img src="./NapTime_Ontology_files/Format-TTL-blue.svg" alt="TTL"></a> </span></dd><dt>License: </dt><dd><a href="http://insertlicenseurihere.org/" target="_blank"><img src="./NapTime_Ontology_files/License-license name goes here-blue.svg" alt="http://insertlicenseURIhere.org"></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/OOPSeval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Elena Allocca,Katarina Lucic,Sara Kitanoska. NapTime ontology. Revision: 1.0.0. Retrieved from: https://naptime.github.io/nap.owl</dd>
+</dl>
+
+<a href="file:///C:/NaptimeProject/provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+NapTime ontology is a movie based framework that conveys the difference in movie genre classification in particular streaming platforms.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="file:///C:/NaptimeProject/index-en.html#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://naptime.github.io/nap.owl&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns&gt;</td></tr>
+<tr><td><b>terms</b></td><td>&lt;http://purl.org/dc/terms&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema&gt;</td></tr>
+<tr><td><b>naptime-github-io</b></td><td>&lt;https://naptime.github.io&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">NapTime ontology: Overview <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul class="hlist">
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Agent" title="https://naptime.github.io/nap.owl#Agent">Agent</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Antagonist" title="https://naptime.github.io/nap.owl#Antagonist">Antagonist</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Deuteragonist" title="https://naptime.github.io/nap.owl#Deuteragonist">Deuteragonist</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Director" title="https://naptime.github.io/nap.owl#Director">Director</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Extracted_Genre" title="https://naptime.github.io/nap.owl#Extracted_Genre">Extracted Genre</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Keyword" title="https://naptime.github.io/nap.owl#Keyword">Keywords</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Actor" title="https://naptime.github.io/nap.owl#Actor">Leading actor</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Genre" title="https://naptime.github.io/nap.owl#Genre">Official Genre</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Plot" title="https://naptime.github.io/nap.owl#Plot">Plot summary</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Polarity" title="https://naptime.github.io/nap.owl#Polarity">Polarity</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Producer" title="https://naptime.github.io/nap.owl#Producer">Producer</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Protagonist" title="https://naptime.github.io/nap.owl#Protagonist">Protagonist</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Rating" title="https://naptime.github.io/nap.owl#Rating">Rating</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Screenwriter" title="https://naptime.github.io/nap.owl#Screenwriter">Screenwriter</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Streaming_platform" title="https://naptime.github.io/nap.owl#Streaming_platform">Streaming platform</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Supporting_actor" title="https://naptime.github.io/nap.owl#Supporting_actor">Supporting actor</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Time_duration" title="https://naptime.github.io/nap.owl#Time_duration">Temporal duration</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Tertiary_character" title="https://naptime.github.io/nap.owl#Tertiary_character">Tertiary character</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Topic" title="https://naptime.github.io/nap.owl#Topic">Topic</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#User" title="https://naptime.github.io/nap.owl#User">User</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#User_reviews" title="https://naptime.github.io/nap.owl#User_reviews">User review</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Word" title="https://naptime.github.io/nap.owl#Word">Word</a>
+   </li>
+</ul><h4>Object Properties</h4><ul class="hlist">
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#applies_genre_tag" title="https://naptime.github.io/nap.owl#applies_genre_tag">applies genre tag</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#corrisponds_to" title="https://naptime.github.io/nap.owl#corrisponds_to">corresponds to</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#defines" title="https://naptime.github.io/nap.owl#defines">defines</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_plot" title="https://naptime.github.io/nap.owl#has_plot">has plot</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_review" title="https://naptime.github.io/nap.owl#has_review">has review</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#is_available_on" title="https://naptime.github.io/nap.owl#is_available_on">is available on</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#is_relevant_to" title="https://naptime.github.io/nap.owl#is_relevant_to">is relevant to</a>
+   </li>
+</ul><h4>Data Properties</h4><ul class="hlist">
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_antagonist" title="https://naptime.github.io/nap.owl#has_antagonist">has antagonist</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_deuteragonist" title="https://naptime.github.io/nap.owl#has_deuteragonist">has deuteragonist</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_director" title="https://naptime.github.io/nap.owl#has_director">has director</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_duration" title="https://naptime.github.io/nap.owl#has_duration">has duration</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_keywords" title="https://naptime.github.io/nap.owl#has_keywords">has keywords</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_leading_actor" title="https://naptime.github.io/nap.owl#has_leading_actor">has leading actor</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_polarity" title="https://naptime.github.io/nap.owl#has_polarity">has polarity</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_producer" title="https://naptime.github.io/nap.owl#has_producer">has producer</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_protagonist" title="https://naptime.github.io/nap.owl#has_protagonist">has protagonist</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_rating" title="https://naptime.github.io/nap.owl#has_rating">has rating</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_screenwriter" title="https://naptime.github.io/nap.owl#has_screenwriter">has screenwriter</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_supporting_actor" title="https://naptime.github.io/nap.owl#has_supporting_actor">has supporting actor</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_tertiary_character" title="https://naptime.github.io/nap.owl#has_tertiary_character">has tertiary character</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#has_word" title="https://naptime.github.io/nap.owl#has_word">has word</a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#title" title="https://naptime.github.io/nap.owl#title">title</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul class="hlist">
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#Rights" title="https://naptime.github.io/nap.owl#Rights">
+         <span>rights</span>
+      </a>
+   </li>
+   <li>
+      <a href="file:///C:/NaptimeProject/index-en.html#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">NapTime ontology: Description <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+
+</div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross reference for NapTime ontology classes, properties and dataproperties <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by NapTime ontology.
+<div id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Agent" title="https://naptime.github.io/nap.owl#Agent">Agent</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Antagonist" title="https://naptime.github.io/nap.owl#Antagonist">Antagonist</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Deuteragonist" title="https://naptime.github.io/nap.owl#Deuteragonist">Deuteragonist</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Director" title="https://naptime.github.io/nap.owl#Director">Director</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Extracted_Genre" title="https://naptime.github.io/nap.owl#Extracted_Genre">Extracted Genre</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Keyword" title="https://naptime.github.io/nap.owl#Keyword">Keywords</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Actor" title="https://naptime.github.io/nap.owl#Actor">Leading actor</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Genre" title="https://naptime.github.io/nap.owl#Genre">Official Genre</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Plot" title="https://naptime.github.io/nap.owl#Plot">Plot summary</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Polarity" title="https://naptime.github.io/nap.owl#Polarity">Polarity</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Producer" title="https://naptime.github.io/nap.owl#Producer">Producer</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Protagonist" title="https://naptime.github.io/nap.owl#Protagonist">Protagonist</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Rating" title="https://naptime.github.io/nap.owl#Rating">Rating</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Screenwriter" title="https://naptime.github.io/nap.owl#Screenwriter">Screenwriter</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Streaming_platform" title="https://naptime.github.io/nap.owl#Streaming_platform">Streaming platform</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Supporting_actor" title="https://naptime.github.io/nap.owl#Supporting_actor">Supporting actor</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Time_duration" title="https://naptime.github.io/nap.owl#Time_duration">Temporal duration</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Tertiary_character" title="https://naptime.github.io/nap.owl#Tertiary_character">Tertiary character</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Topic" title="https://naptime.github.io/nap.owl#Topic">Topic</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#User" title="https://naptime.github.io/nap.owl#User">User</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#User_reviews" title="https://naptime.github.io/nap.owl#User_reviews">User review</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Word" title="https://naptime.github.io/nap.owl#Word">Word</a>
+      </li>
+   </ul>
+   <div class="entity" id="Agent">
+      <h3>Agent<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Agent</p>
+      <div class="comment">
+         <span class="markdown">A resource that acts or has power to act.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://purl.org/dc/terms/Agent">http://purl.org/dc/terms/Agent</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#User" title="https://naptime.github.io/nap.owl#User">User</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Antagonist">
+      <h3>Antagonist<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Antagonist</p>
+      <div class="comment">
+         <span class="markdown">A person who actively opposes or is hostile to someone or something; an adversary.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_antagonist" title="https://naptime.github.io/nap.owl#has_antagonist">has antagonist</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Concept">
+      <h3>Concept<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Concept</p>
+      <div class="comment">
+         <span class="markdown">Represents the class of entities needed for defining the fundamental elements used for the project analysis.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Extracted_Genre" title="https://naptime.github.io/nap.owl#Extracted_Genre">Extracted Genre</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Keyword" title="https://naptime.github.io/nap.owl#Keyword">Keywords</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Genre" title="https://naptime.github.io/nap.owl#Genre">Official Genre</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Plot" title="https://naptime.github.io/nap.owl#Plot">Plot summary</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Polarity" title="https://naptime.github.io/nap.owl#Polarity">Polarity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Rating" title="https://naptime.github.io/nap.owl#Rating">Rating</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Topic" title="https://naptime.github.io/nap.owl#Topic">Topic</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Word" title="https://naptime.github.io/nap.owl#Word">Word</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Deuteragonist">
+      <h3>Deuteragonist<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Deuteragonist</p>
+      <div class="comment">
+         <span class="markdown">The person second in importance to the protagonist.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_deuteragonist" title="https://naptime.github.io/nap.owl#has_deuteragonist">has deuteragonist</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Director">
+      <h3>Director<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Director</p>
+      <div class="comment">
+         <span class="markdown">A film director controls a film's artistic and dramatic aspects and visualizes the screenplay while guiding the technical crew and actors in the fulfilment of that vision.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_director" title="https://naptime.github.io/nap.owl#has_director">has director</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Extracted_Genre">
+      <h3>Extracted Genre<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Extracted_Genre</p>
+      <div class="comment">
+         <span class="markdown">The genre obtained after the textual analysis on both plot summary and official genre definition.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#defines" title="https://naptime.github.io/nap.owl#defines">defines</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Film">
+      <h3>Film<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Film</p>
+      <div class="comment">
+         <span class="markdown">A story or event recorded by a camera as a set of moving images and shown in a cinema or on television.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Agent" title="https://naptime.github.io/nap.owl#Agent">Agent</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Streaming_platform" title="https://naptime.github.io/nap.owl#Streaming_platform">Streaming platform</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Time_duration" title="https://naptime.github.io/nap.owl#Time_duration">Temporal duration</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#User_reviews" title="https://naptime.github.io/nap.owl#User_reviews">User review</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_review" title="https://naptime.github.io/nap.owl#has_review">has review</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="file:///C:/NaptimeProject/index-en.html#is_available_on" title="https://naptime.github.io/nap.owl#is_available_on">is available on</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="file:///C:/NaptimeProject/index-en.html#title" title="https://naptime.github.io/nap.owl#title">title</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Movie_character">
+      <h3>Film character<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Movie_character</p>
+      <div class="comment">
+         <span class="markdown">A character (sometimes known as a fictional character) is a person or other being in a narrative (such as a novel, play, television series, film, or video game).</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Agent" title="https://naptime.github.io/nap.owl#Agent">Agent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Antagonist" title="https://naptime.github.io/nap.owl#Antagonist">Antagonist</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Deuteragonist" title="https://naptime.github.io/nap.owl#Deuteragonist">Deuteragonist</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Protagonist" title="https://naptime.github.io/nap.owl#Protagonist">Protagonist</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Tertiary_character" title="https://naptime.github.io/nap.owl#Tertiary_character">Tertiary character</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Film_crew">
+      <h3>Film crew<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Film_crew</p>
+      <div class="comment">
+         <span class="markdown">A group of people who are involved in the practical and technical business of shooting a film.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Agent" title="https://naptime.github.io/nap.owl#Agent">Agent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Director" title="https://naptime.github.io/nap.owl#Director">Director</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Actor" title="https://naptime.github.io/nap.owl#Actor">Leading actor</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Producer" title="https://naptime.github.io/nap.owl#Producer">Producer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Screenwriter" title="https://naptime.github.io/nap.owl#Screenwriter">Screenwriter</a>
+            <sup class="type-c" title="class">c</sup>, <a href="file:///C:/NaptimeProject/index-en.html#Supporting_actor" title="https://naptime.github.io/nap.owl#Supporting_actor">Supporting actor</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Keyword">
+      <h3>Keywords<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Keyword</p>
+      <div class="comment">
+         <span class="markdown">Keywords obtained after the plot summary analysis.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_keywords" title="https://naptime.github.io/nap.owl#has_keywords">has keywords</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="file:///C:/NaptimeProject/index-en.html#is_relevant_to" title="https://naptime.github.io/nap.owl#is_relevant_to">is relevant to</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Actor">
+      <h3>Leading actor<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Actor</p>
+      <div class="comment">
+         <span class="markdown">A leading actor plays the role of the protagonist of a film, television show or play.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_leading_actor" title="https://naptime.github.io/nap.owl#has_leading_actor">has leading actor</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Genre">
+      <h3>Official Genre<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Genre</p>
+      <div class="comment">
+         <span class="markdown">The genre as given by the streaming platform.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#corrisponds_to" title="https://naptime.github.io/nap.owl#corrisponds_to">corresponds to</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#applies_genre_tag" title="https://naptime.github.io/nap.owl#applies_genre_tag">applies genre tag</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Plot">
+      <h3>Plot summary<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Plot</p>
+      <div class="comment">
+         <span class="markdown">A brief description of a film plot that explains what happens.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#defines" title="https://naptime.github.io/nap.owl#defines">defines</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_plot" title="https://naptime.github.io/nap.owl#has_plot">has plot</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Polarity">
+      <h3>Polarity<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Polarity</p>
+      <div class="comment">
+         <span class="markdown">The polarity value connected to the outcome from sentiment analysis.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_polarity" title="https://naptime.github.io/nap.owl#has_polarity">has polarity</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Producer">
+      <h3>Producer<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Producer</p>
+      <div class="comment">
+         <span class="markdown">A person who makes the practical and financial arrangements needed to make a film.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_producer" title="https://naptime.github.io/nap.owl#has_producer">has producer</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Protagonist">
+      <h3>Protagonist<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Protagonist</p>
+      <div class="comment">
+         <span class="markdown">The leading character or one of the major characters in a play, film, novel, etc.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_protagonist" title="https://naptime.github.io/nap.owl#has_protagonist">has protagonist</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Rating">
+      <h3>Rating<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Rating</p>
+      <div class="comment">
+         <span class="markdown">IMDB users assign ratings on a scale from 1 - 10. 1 meaning the title was terrible and one of the worst titles the user has seen and 10 meaning he/she think it was excellent.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_rating" title="https://naptime.github.io/nap.owl#has_rating">has rating</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Screenwriter">
+      <h3>Screenwriter<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Screenwriter</p>
+      <div class="comment">
+         <span class="markdown">A person who writes a screenplay.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_screenwriter" title="https://naptime.github.io/nap.owl#has_screenwriter">has screenwriter</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Streaming_platform">
+      <h3>Streaming platform<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Streaming_platform</p>
+      <div class="comment">
+         <span class="markdown">A subscription-based service offering online streaming of films and television programs.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#applies_genre_tag" title="https://naptime.github.io/nap.owl#applies_genre_tag">applies genre tag</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="file:///C:/NaptimeProject/index-en.html#has_plot" title="https://naptime.github.io/nap.owl#has_plot">has plot</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#is_available_on" title="https://naptime.github.io/nap.owl#is_available_on">is available on</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Supporting_actor">
+      <h3>Supporting actor<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Supporting_actor</p>
+      <div class="comment">
+         <span class="markdown">An actor who performs a role in a play or film below that of the leading actor.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film_crew" title="https://naptime.github.io/nap.owl#Film_crew">Film crew</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_supporting_actor" title="https://naptime.github.io/nap.owl#has_supporting_actor">has supporting actor</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Time_duration">
+      <h3>Temporal duration<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Time_duration</p>
+      <div class="comment">
+         <span class="markdown">Time extent; duration of a time interval separate from its particular start position.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_duration" title="https://naptime.github.io/nap.owl#has_duration">has duration</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Tertiary_character">
+      <h3>Tertiary character<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Tertiary_character</p>
+      <div class="comment">
+         <span class="markdown">A character who appears in one, perhaps two scenes for a specific, limited purpose.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Movie_character" title="https://naptime.github.io/nap.owl#Movie_character">Film character</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_tertiary_character" title="https://naptime.github.io/nap.owl#has_tertiary_character">has tertiary character</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Topic">
+      <h3>Topic<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Topic</p>
+      <div class="comment">
+         <span class="markdown">Topic refers to the retrieved topic of a single plot summary.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#defines" title="https://naptime.github.io/nap.owl#defines">defines</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#corrisponds_to" title="https://naptime.github.io/nap.owl#corrisponds_to">corresponds to</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="file:///C:/NaptimeProject/index-en.html#is_relevant_to" title="https://naptime.github.io/nap.owl#is_relevant_to">is relevant to</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="User">
+      <h3>User<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#User</p>
+      <div class="comment">
+         <span class="markdown">A person who writes the review for a film.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Agent" title="https://naptime.github.io/nap.owl#Agent">Agent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="User_reviews">
+      <h3>User review<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#User_reviews</p>
+      <div class="comment">
+         <span class="markdown">A review conducted by any person who has access to the internet and publishes their experience to a review site.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_word" title="https://naptime.github.io/nap.owl#has_word">has word</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#has_review" title="https://naptime.github.io/nap.owl#has_review">has review</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Word">
+      <h3>Word<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Word</p>
+      <div class="comment">
+         <span class="markdown">The single word extracted from the user review, used to conduct the sentiment analysis.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="file:///C:/NaptimeProject/index-en.html#Concept" title="https://naptime.github.io/nap.owl#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#applies_genre_tag" title="https://naptime.github.io/nap.owl#applies_genre_tag">applies genre tag</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#corrisponds_to" title="https://naptime.github.io/nap.owl#corrisponds_to">corresponds to</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#defines" title="https://naptime.github.io/nap.owl#defines">defines</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_plot" title="https://naptime.github.io/nap.owl#has_plot">has plot</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_review" title="https://naptime.github.io/nap.owl#has_review">has review</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#is_available_on" title="https://naptime.github.io/nap.owl#is_available_on">is available on</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#is_relevant_to" title="https://naptime.github.io/nap.owl#is_relevant_to">is relevant to</a>
+      </li>
+   </ul>
+   <div class="entity" id="applies_genre_tag">
+      <h3>applies genre tag<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#applies_genre_tag</p>
+      <div class="comment">
+         <span class="markdown">This property relates the film to its genre assigned by the specific streaming platform.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Streaming_platform" title="https://naptime.github.io/nap.owl#Streaming_platform">Streaming platform</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Genre" title="https://naptime.github.io/nap.owl#Genre">Official Genre</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="corrisponds_to">
+      <h3>corresponds to<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#corrisponds_to</p>
+      <div class="comment">
+         <span class="markdown">This property relates the topic extracted from the analysis on the official genre definition.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Genre" title="https://naptime.github.io/nap.owl#Genre">Official Genre</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Topic" title="https://naptime.github.io/nap.owl#Topic">Topic</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="defines">
+      <h3>defines<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#defines</p>
+      <div class="comment">
+         <span class="markdown">This property relates a specific keyword(s) to the topic.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Plot" title="https://naptime.github.io/nap.owl#Plot">Plot summary</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Topic" title="https://naptime.github.io/nap.owl#Topic">Topic</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Extracted_Genre" title="https://naptime.github.io/nap.owl#Extracted_Genre">Extracted Genre</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_plot">
+      <h3>has plot<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_plot</p>
+      <div class="comment">
+         <span class="markdown">This property relates the plot summary to the streaming platform it can be found on.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Streaming_platform" title="https://naptime.github.io/nap.owl#Streaming_platform">Streaming platform</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Plot" title="https://naptime.github.io/nap.owl#Plot">Plot summary</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_review">
+      <h3>has review<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_review</p>
+      <div class="comment">
+         <span class="markdown">This property relates the film to its user review.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#User_reviews" title="https://naptime.github.io/nap.owl#User_reviews">User review</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="is_available_on">
+      <h3>is available on<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#is_available_on</p>
+      <div class="comment">
+         <span class="markdown">Relates the film to the the streaming platform is can be found on.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Streaming_platform" title="https://naptime.github.io/nap.owl#Streaming_platform">Streaming platform</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="is_relevant_to">
+      <h3>is relevant to<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#is_relevant_to</p>
+      <div class="comment">
+         <span class="markdown">This property relates the keywords to the topic.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>https://naptime.github.io/nap.owl</dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Keyword" title="https://naptime.github.io/nap.owl#Keyword">Keywords</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Topic" title="https://naptime.github.io/nap.owl#Topic">Topic</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="dataproperties">
+   <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_antagonist" title="https://naptime.github.io/nap.owl#has_antagonist">has antagonist</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_deuteragonist" title="https://naptime.github.io/nap.owl#has_deuteragonist">has deuteragonist</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_director" title="https://naptime.github.io/nap.owl#has_director">has director</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_duration" title="https://naptime.github.io/nap.owl#has_duration">has duration</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_keywords" title="https://naptime.github.io/nap.owl#has_keywords">has keywords</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_leading_actor" title="https://naptime.github.io/nap.owl#has_leading_actor">has leading actor</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_polarity" title="https://naptime.github.io/nap.owl#has_polarity">has polarity</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_producer" title="https://naptime.github.io/nap.owl#has_producer">has producer</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_protagonist" title="https://naptime.github.io/nap.owl#has_protagonist">has protagonist</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_rating" title="https://naptime.github.io/nap.owl#has_rating">has rating</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_screenwriter" title="https://naptime.github.io/nap.owl#has_screenwriter">has screenwriter</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_supporting_actor" title="https://naptime.github.io/nap.owl#has_supporting_actor">has supporting actor</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_tertiary_character" title="https://naptime.github.io/nap.owl#has_tertiary_character">has tertiary character</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#has_word" title="https://naptime.github.io/nap.owl#has_word">has word</a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#title" title="https://naptime.github.io/nap.owl#title">title</a>
+      </li>
+   </ul>
+   <div class="entity" id="has_antagonist">
+      <h3>has antagonist<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_antagonist</p>
+      <div class="comment">
+         <span class="markdown">The antagonist of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Antagonist" title="https://naptime.github.io/nap.owl#Antagonist">Antagonist</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_deuteragonist">
+      <h3>has deuteragonist<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_deuteragonist</p>
+      <div class="comment">
+         <span class="markdown">The deuteragonist of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Deuteragonist" title="https://naptime.github.io/nap.owl#Deuteragonist">Deuteragonist</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_director">
+      <h3>has director<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_director</p>
+      <div class="comment">
+         <span class="markdown">The director of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Director" title="https://naptime.github.io/nap.owl#Director">Director</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_duration">
+      <h3>has duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_duration</p>
+      <div class="comment">
+         <span class="markdown">The runtime of the film.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://www.w3.org/TR/owl-time/#time:hasDuration">https://www.w3.org/TR/owl-time/#time:hasDuration</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Time_duration" title="https://naptime.github.io/nap.owl#Time_duration">Temporal duration</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_keywords">
+      <h3>has keywords<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_keywords</p>
+      <div class="comment">
+         <span class="markdown">This property represents the values obtained after the analysis on the plot summary.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Keyword" title="https://naptime.github.io/nap.owl#Keyword">Keywords</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_leading_actor">
+      <h3>has leading actor<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_leading_actor</p>
+      <div class="comment">
+         <span class="markdown">The name of the leading actor in a film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Actor" title="https://naptime.github.io/nap.owl#Actor">Leading actor</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_polarity">
+      <h3>has polarity<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_polarity</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Polarity" title="https://naptime.github.io/nap.owl#Polarity">Polarity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_producer">
+      <h3>has producer<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_producer</p>
+      <div class="comment">
+         <span class="markdown">The producer of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Producer" title="https://naptime.github.io/nap.owl#Producer">Producer</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_protagonist">
+      <h3>has protagonist<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_protagonist</p>
+      <div class="comment">
+         <span class="markdown">The protagonist of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Protagonist" title="https://naptime.github.io/nap.owl#Protagonist">Protagonist</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_rating">
+      <h3>has rating<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_rating</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Rating" title="https://naptime.github.io/nap.owl#Rating">Rating</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_screenwriter">
+      <h3>has screenwriter<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_screenwriter</p>
+      <div class="comment">
+         <span class="markdown">The writer of the film screenplay.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Screenwriter" title="https://naptime.github.io/nap.owl#Screenwriter">Screenwriter</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_supporting_actor">
+      <h3>has supporting actor<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_supporting_actor</p>
+      <div class="comment">
+         <span class="markdown">The supporting actor(s) of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Supporting_actor" title="https://naptime.github.io/nap.owl#Supporting_actor">Supporting actor</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_tertiary_character">
+      <h3>has tertiary character<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_tertiary_character</p>
+      <div class="comment">
+         <span class="markdown">The tertiary character of the film.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Tertiary_character" title="https://naptime.github.io/nap.owl#Tertiary_character">Tertiary character</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="has_word">
+      <h3>has word<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#has_word</p>
+      <div class="comment">
+         <span class="markdown">This property defines every single word from the user review, on which the sentiment analysis is done.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#User_reviews" title="https://naptime.github.io/nap.owl#User_reviews">User review</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="title">
+      <h3>title<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#title</p>
+      <div class="comment">
+         <span class="markdown">The title of the film.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://purl.org/dc/elements/1.1/title">http://purl.org/dc/elements/1.1/title</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="file:///C:/NaptimeProject/index-en.html#Film" title="https://naptime.github.io/nap.owl#Film">Film</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#Name">name</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="annotationproperties">
+   <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator">
+            <span>creator</span>
+         </a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#Rights" title="https://naptime.github.io/nap.owl#Rights">
+            <span>rights</span>
+         </a>
+      </li>
+      <li>
+         <a href="file:///C:/NaptimeProject/index-en.html#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+            <span>title</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="http://purl.org/dc/elements/1.1/creator">
+      <h3>creator<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/elements/1.1/creator</p>
+   </div>
+   <div class="entity" id="Rights">
+      <h3>rights<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://naptime.github.io/nap.owl#Rights</p>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/title">
+      <h3>title<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a> or <a href="file:///C:/NaptimeProject/index-en.html#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+<div class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgements">
+<h2 id="ack" class="list">Acknowledgements <span class="backlink"> back to <a href="file:///C:/NaptimeProject/index-en.html#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+
+</body></html>
